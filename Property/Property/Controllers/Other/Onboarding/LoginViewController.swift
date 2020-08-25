@@ -167,6 +167,30 @@ class LoginViewController: UIViewController {
         passwordField.resignFirstResponder()
         
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty, let password = passwordField.text, !password.isEmpty, password.count >= 8 else { return }
+        
+        var email: String?
+        var username: String?
+        
+        if usernameEmail.contains("@"), usernameEmail.contains(".") {
+            email = usernameEmail
+        } else {
+            username = usernameEmail
+        }
+        
+        AuthManeger.shared.loginUser(username: username, email: email, password: password) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                let alert = UIAlertController(title: "Log In Error",
+                                              message: "We were unnable to log you in.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss",
+                                              style: .cancel,
+                                              handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
     }
     @objc private func didTapTerminalButton() {
         guard let url = URL(string: "https://help.instagram.com/581066165581870") else { return }
@@ -180,7 +204,8 @@ class LoginViewController: UIViewController {
     }
     @objc private func didTapCreateAccountButton() {
         let vc = RegisterViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
 }
 

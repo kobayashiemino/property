@@ -10,14 +10,23 @@ import FirebaseDatabase
 
 public class DataBaseManeger {
     static let shared = DataBaseManeger()
+    private let database = Database.database().reference()
     
     // MARK: - Public
     
-    public func registerNewUser(username: String, email: String, password: String) {
-        
+    public func canCreateNewUser(with email: String, username: String, completion: (Bool) -> Void) {
+        completion(true)
     }
     
-    public func loginUser(username: String?, email: String?, password: String) {
-        
+    public  func insertNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void ) {
+        database.child(email.safeDatabaseKey()).setValue(["username": username]) { (error, _) in
+            if error == nil {
+                completion(true)
+                return
+            }
+            else {
+                completion(false)
+            }
+        }
     }
 }
