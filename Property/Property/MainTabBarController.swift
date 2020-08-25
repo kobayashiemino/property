@@ -12,15 +12,14 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViewControllers()
     }
     
     func setupViewControllers() {
         let homeViewContoller = templeteNavController(rootViewController: HomeViewController(), selectedImage: "house.fill", unSelectedImage: "house")
-        let exploreViewController = templeteNavController(rootViewController: ExploreViewController(), selectedImage: "globe", unSelectedImage: "globe")
+        let exploreViewController = templeteNavController(rootViewController: ExploreViewController(), selectedImage: "magnifyingglass", unSelectedImage: "magnifyingglass")
         let cameraViewController = templeteNavController(rootViewController: CameraViewController(), selectedImage: "plus", unSelectedImage: "plus")
-        let notificationsViewController = templeteNavController(rootViewController: NotificationsViewController(), selectedImage: "bell.fill", unSelectedImage: "bell")
+        let notificationsViewController = templeteNavController(rootViewController: NotificationsViewController(), selectedImage: "heart.fill", unSelectedImage: "heart")
         let profileViewController = templeteNavController(rootViewController: ProfileViewController(), selectedImage: "person.fill", unSelectedImage: "person")
         
         viewControllers = [homeViewContoller,
