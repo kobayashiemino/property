@@ -38,6 +38,7 @@
 		82FFBF8F24F60B1200406865 /* IGPostFeedHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FFBF8E24F60B1200406865 /* IGPostFeedHeaderTableViewCell.swift */; };
 		82FFBF9124F60B3D00406865 /* IGFeedPostActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FFBF9024F60B3D00406865 /* IGFeedPostActionTableViewCell.swift */; };
 		82FFBF9324F60B5700406865 /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FFBF9224F60B5700406865 /* IGFeedPostGeneralTableViewCell.swift */; };
+		82FFBF9524F64F6700406865 /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FFBF9424F64F6700406865 /* FormTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		82FFBF8E24F60B1200406865 /* IGPostFeedHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostFeedHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		82FFBF9024F60B3D00406865 /* IGFeedPostActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionTableViewCell.swift; sourceTree = "<group>"; };
 		82FFBF9224F60B5700406865 /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
+		82FFBF9424F64F6700406865 /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				82FFBF8D24F60AE000406865 /* HomeFeed */,
+				82FFBF9424F64F6700406865 /* FormTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				82C608F024F2332D00906E2A /* PostViewController.swift in Sources */,
 				828D6F8124F2489E0057C7A4 /* DatabaseManeger.swift in Sources */,
 				82C608E424F2325A00906E2A /* NotificationsViewController.swift in Sources */,
+				82FFBF9524F64F6700406865 /* FormTableViewCell.swift in Sources */,
 				82C608FA24F233FD00906E2A /* SearchResultViewController.swift in Sources */,
 				82C608EB24F232CA00906E2A /* LoginViewController.swift in Sources */,
 				82FFBF8C24F6075500406865 /* IGFeedPostTableVewCell.swift in Sources */,
