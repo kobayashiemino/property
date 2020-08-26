@@ -18,7 +18,7 @@ public class DataBaseManeger {
         completion(true)
     }
     
-    public  func insertNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void ) {
+    public func insertNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void ) {
         database.child(email.safeDatabaseKey()).setValue(["username": username]) { (error, _) in
             if error == nil {
                 completion(true)

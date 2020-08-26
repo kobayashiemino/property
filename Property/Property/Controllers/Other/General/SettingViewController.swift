@@ -6,6 +6,7 @@
 //  Copyright © 2020 kobayashi emino. All rights reserved.
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
     let title: String
@@ -39,12 +40,66 @@ class SettingViewController: UIViewController {
     }
     
     private func configureModels() {
-        let section = [
+        data.append([
+            SettingCellModel(title: "Edit Profile") { [weak self] in
+                self?.didTapEditProfile()
+            },
+            SettingCellModel(title: "Invite Friends") { [weak self] in
+                self?.didTapInviteFriends()
+            },
+            SettingCellModel(title: "Save Original Posts") { [weak self] in
+                self?.didTapSaveOriginalPosts()
+            }
+        ])
+        data.append([
+            SettingCellModel(title: "Terms of Services") { [weak self] in
+                self?.openURL(type: .terms)
+            },
+            SettingCellModel(title: "Privacy Policy") { [weak self] in
+                self?.openURL(type: .privacy)
+            },
+            SettingCellModel(title: "Help / Feedback") { [weak self] in
+                self?.openURL(type: .help)
+            }
+        ])
+        data.append([
             SettingCellModel(title: "Log out") { [weak self] in
                 self?.didTapLogout()
             }
-        ]
-        data.append(section)
+        ])
+    }
+    
+    enum SettingURLType {
+        case terms, privacy, help
+    }
+    
+    private func openURL(type: SettingURLType) {
+        let urlString: String
+        switch type {
+        case .terms: urlString = "https://help.instagram.com/581066165581870"
+        case .privacy: urlString = "https://help.instagram.com/196883487377501/?hel-"
+        case .help: urlString = "https://help.instagram.com/"
+        }
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    private func didTapSaveOriginalPosts() {
+        
+    }
+    
+    private func didTapInviteFriends() {
+        
+    }
+    
+    private func didTapEditProfile() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
     
     private func didTapLogout() {
