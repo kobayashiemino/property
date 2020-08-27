@@ -153,6 +153,6 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
 
 extension EditProfileViewController: FormTableViewCellDelegate {
     func formTableViewCell(_ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel?) {
-        <#code#>
+        print("")
     }
 }

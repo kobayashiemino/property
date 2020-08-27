@@ -58,13 +58,13 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         formLabel.frame = CGRect(x: 5,
-                                  y: 0,
-                                  width: contentView.width/3,
-                                  height: contentView.height)
+                                 y: 0,
+                                 width: contentView.width/3,
+                                 height: contentView.height)
         field.frame = CGRect(x: formLabel.right + 5,
-                                  y: 0,
-                                  width: contentView.width - 10 - formLabel.width,
-                                  height: contentView.height)
+                             y: 0,
+                             width: contentView.width - 10 - formLabel.width,
+                             height: contentView.height)
     }
     
     // MARK: -Field
