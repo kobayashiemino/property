@@ -159,6 +159,7 @@
 		82C608DC24F2315100906E2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82FFBF8A24F6070B00406865 /* Cells */,
 				82C608DE24F2317D00906E2A /* Storyboard */,
 				82C608CF24F230E200906E2A /* Assets.xcassets */,
 			);
@@ -182,7 +183,6 @@
 		82C608DE24F2317D00906E2A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				82FFBF8A24F6070B00406865 /* Cells */,
 				82C608CC24F230E100906E2A /* Main.storyboard */,
 				82C608D124F230E200906E2A /* LaunchScreen.storyboard */,
 			);

@@ -12,6 +12,8 @@ final class ProfileViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     
+    private var userPosts  = [UserPost]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -81,6 +83,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let vc = PostViewController()
+        vc.title = "Post"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -99,6 +106,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                      withReuseIdentifier: ProfileInfoHeaderCollectionReusableCell.identifier,
                                                                      for: indexPath) as! ProfileInfoHeaderCollectionReusableCell
+        profileHeader.delegate = self
         return profileHeader
     }
     
@@ -108,5 +116,34 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                           height: view.height / 3)
         }
         return CGSize(width: view.width, height: 65)
+    }
+}
+
+// MARK: - ProfileInfoHeaderCollectionReusableViewDelegate
+
+extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate {
+    func profileImageHeaderDidTapPostsButton(_ header: ProfileInfoHeaderCollectionReusableCell) {
+        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
+    }
+    
+    func profileImageHeaderDidTapFollowingsButton(_ header: ProfileInfoHeaderCollectionReusableCell) {
+        let vc = ListViewController()
+        vc.title = "Following"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileImageHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableCell) {
+        let vc = ListViewController()
+        vc.title = "Followers"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileImageHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableCell) {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
